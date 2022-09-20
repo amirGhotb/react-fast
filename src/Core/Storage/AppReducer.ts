@@ -1,5 +1,6 @@
 import {ItemsToStorage} from "../../InitContext";
 import Store from "./Store";
+import {DispatchDeleteType, DispatchInitFromStorageType, DispatchUpdateType} from "../Interfaces";
 
 function deleteF(prevState: { [key: string]: any }, data: Array<string>): object {
     data.forEach(item => {
@@ -8,23 +9,10 @@ function deleteF(prevState: { [key: string]: any }, data: Array<string>): object
     return {...prevState}
 }
 
-export interface DispatchTypeInitFromStorage {
-    type: 'INIT_FROM_STORAGE',
-}
-
-export interface DispatchTypeUpdate {
-    type: 'UPDATE',
-    data: { [key: string]: any }
-}
-
-export interface DispatchTypeDelete {
-    type: 'DELETE',
-    data: Array<string>
-}
 
 export default function AppReducer(prevState: { [key: string]: any },
-                                   action: DispatchTypeInitFromStorage | DispatchTypeUpdate |
-                                       DispatchTypeDelete) {
+                                   action: DispatchInitFromStorageType | DispatchUpdateType |
+                                       DispatchDeleteType) {
 
     const itemsToStorage = ItemsToStorage;
     const itemsToStorageKeys = Object.keys(itemsToStorage)

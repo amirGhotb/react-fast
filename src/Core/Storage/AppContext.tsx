@@ -1,15 +1,11 @@
-import React, {createContext, useReducer, Dispatch, useEffect} from 'react';
-import AppReducer, {DispatchTypeDelete, DispatchTypeUpdate} from "./AppReducer";
+import React, {createContext, useReducer, useEffect} from 'react';
+import AppReducer from "./AppReducer";
 import {InitContext} from "../../InitContext";
+import {AppContextType} from "../Interfaces";
 
 const systemItems: object = {
     spinner: false,
     alerts: []
-}
-
-export interface AppContextType {
-    state: { [key: string]: any };
-    dispatch: Dispatch<DispatchTypeUpdate | DispatchTypeDelete>;
 }
 
 

@@ -1,7 +1,8 @@
 import Authorization from "../../Api/Authorization";
+import {AxiosRequestHeaders} from "axios";
 
-export default function Header(auth = false, media = false) {
-    let headers: { [key: string]: any } = {
+export default function Header(auth = false, media = false): AxiosRequestHeaders {
+    let headers: object = {
         'content-Type': media ? 'multipart/form-data' : 'application/json',
         Accept: 'application/json',
     };
@@ -9,5 +10,5 @@ export default function Header(auth = false, media = false) {
         headers = {...headers, ...Authorization()};
     }
 
-    return headers;
+    return <AxiosRequestHeaders>headers;
 }

@@ -1,9 +1,11 @@
+import {ItemToStorageType} from "./Core/Interfaces";
+
 const InitContext: object = {
     showSidebar: false,
     userInfo: {}
 };
 
-const ItemsToStorage: { [key: string]: 'local' | 'session' } = {
+const ItemsToStorage: ItemToStorageType = {
     userInfo: 'session'
 }
 

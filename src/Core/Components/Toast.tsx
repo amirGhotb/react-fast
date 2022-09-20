@@ -1,17 +1,5 @@
 import React, {createContext, useContext, useEffect, useRef, useState} from "react";
-
-interface ToastType {
-    id?: number,
-    text: string,
-    type: 'danger' | 'warning' | 'info',
-    time?: number
-}
-
-interface ToastContextType {
-    show: (content: ToastType) => void,
-    hide: (id: number) => void,
-    toasts: Array<ToastType>
-}
+import {ToastContextType, ToastType} from "../Interfaces";
 
 export const ToastContext = createContext<ToastContextType>({
     show: (content: ToastType) => null,

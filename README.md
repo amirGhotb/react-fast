@@ -57,7 +57,7 @@ src
 
 ### Routes
 
-in `Routes.ts` you can use array of `CRoute()` function to define your Routes:
+in `Routes.tsx` you can use array of `CRoute()` function to define your Routes:
 
 ```
 CRoute({ 
@@ -81,7 +81,7 @@ CRoute({
         })
 ```
 
-so you can use the `CGroup()` function in `Routes.ts` to define a group of routes that have similar features
+so you can use the `CGroup()` function in `Routes.tsx` to define a group of routes that have similar features
 
 ```
 CGroup({
@@ -117,7 +117,7 @@ new CGroup({
 #### full example
 
 ```
-\\Routes.ts
+\\Routes.tsx
 
 function routes(): Array<CRoute | CGroup> {
     return [

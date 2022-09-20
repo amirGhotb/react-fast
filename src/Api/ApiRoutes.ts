@@ -1,4 +1,4 @@
-import {ApiRouteType} from "../Core/Api";
+import {ApiRouteType} from "../Core/Interfaces";
 
 export const ApiRoutes: Array<ApiRouteType> = [
     {

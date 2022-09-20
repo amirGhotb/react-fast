@@ -1,9 +1,10 @@
 import {useContext, useEffect, useState} from 'react';
 import {AppContext} from '../Storage/AppContext';
-import axios, {AxiosError, AxiosResponse} from 'axios';
+import axios from 'axios';
 import PreProcess from "./PreProcess";
 import BodyProcess from "../../Api/BodyProcess";
 import ErrorHandle from "../../Api/ErrorHandle";
+import {ApiInputType} from "../Interfaces";
 
 const apiStates = {
     LOADING: 'LOADING',
@@ -11,27 +12,8 @@ const apiStates = {
     ERROR: 'ERROR',
 };
 
-export interface ApiRouteType {
-    name: string,
-    url: string,
-    method: 'post' | 'get' | 'delete' | 'put',
-    auth: boolean,
-    media?: boolean
-}
 
-export interface AuthorizationType {
-    [key: string]: string
-}
-
-interface ApiInput {
-    apiName: string,
-    entry?: object,
-    onSuccess?: (body: any, response: AxiosResponse<any>) => void,
-    onError?: (e: AxiosError<any>) => void,
-    condition?: boolean
-}
-
-export default function (input: ApiInput, watch: Array<any>) {
+export default function (input: ApiInputType, watch: Array<any>) {
     const [data, setData] = useState([{}, '']);
     const context = useContext(AppContext)
     const setSpinner = (active = false) => {

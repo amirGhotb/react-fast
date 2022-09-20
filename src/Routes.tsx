@@ -8,20 +8,21 @@ function routes(): Array<CRoute | CGroup> {
     return [
         new CRoute({
             name: 'home',
-            view: Home(),
-            path: ''
+            view: <Home/>,
+            path: '',
+            middleware:'auth'
         }),
         new CRoute({
             name: 'aboutUs',
-            view: AboutUs(),
+            view: <AboutUs/>,
             path: '/about-us'
         }),
         new CGroup({
             prefix: 'panel', layoutName: 'panel', childes: [
                 new CRoute({
-                    name: 'home',
-                    view: PanelHome(),
-                    path: ''
+                    path:'',
+                    name: 'panelHome',
+                    view: <PanelHome/>,
                 }),
             ]
         })

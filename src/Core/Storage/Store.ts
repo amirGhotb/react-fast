@@ -1,6 +1,5 @@
 type typeEnum = 'session' | 'local';
 
-
 class Store {
 
     public type: typeEnum;

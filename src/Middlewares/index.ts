@@ -1,7 +1,15 @@
-import {AuthMiddleware} from "./AuthMiddleware";
+import {MiddlewareType} from "../Core/Interfaces";
 
-const Middlewares:{[key:string]:(children: JSX.Element) => JSX.Element} = {
-    auth: AuthMiddleware,
+export default function Middlewares(): MiddlewareType {
+    // const toast = useToast();
+    return {
+        auth: {
+            redirect: 'panelHome',
+            condition: () => {
+                // toast.show({text: 'You do not have access to this page', type: 'warning'})
+                return false
+            }
+        },
+    }
 }
 
-export default Middlewares;
