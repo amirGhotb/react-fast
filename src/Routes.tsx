@@ -10,7 +10,6 @@ function routes(): Array<CRoute | CGroup> {
             name: 'home',
             view: <Home/>,
             path: '',
-            middleware:'auth'
         }),
         new CRoute({
             name: 'aboutUs',

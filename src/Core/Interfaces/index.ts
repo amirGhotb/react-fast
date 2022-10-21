@@ -4,7 +4,7 @@ import {Dispatch} from "react";
 export interface MiddlewareType {
     [key: string]: {
         redirect: string,
-        condition: ()=>boolean
+        condition: () => boolean
     }
 }
 
@@ -58,4 +58,57 @@ export interface DispatchDeleteType {
 
 export interface ItemToStorageType {
     [key: string]: 'local' | 'session'
+}
+
+export interface InputProperties {
+    type: 'text' | 'numberInteger' | 'numberFloat' | 'checkBox' | 'textArea' | 'select' | 'searchableSelect',
+    required?: boolean,
+    showCondition?: boolean,
+    disabled?: boolean,
+    value: any,
+    setValue: (v: any) => void,
+    otherAttribute?: object,
+    isInvalid?: boolean,
+    invalidFeedback?: string,
+    label?: string,
+    labelClass?: string,
+    options?: Array<{
+        text: string,
+        value: any
+    }>,
+    validations?: [{
+        condition: (value: any) => boolean,
+        invalidFeedback: string
+    }]
+}
+
+export interface CustomInputProperties {
+    required?: boolean,
+    showCondition?: boolean,
+    disabled?: boolean,
+    value: any,
+    setValue: (v: any) => void,
+    isInvalid?: boolean,
+    invalidFeedback?: string,
+    label?: string,
+    labelClass?: string,
+    view: (value: any, setValue: (v: any) => void, isInvalid?: boolean, invalidFeedback?: String) => JSX.Element
+    validations?: [{
+        condition: (value: any) => boolean,
+        invalidFeedback: string
+    }]
+}
+
+export interface FormProperties {
+    submit: () => void,
+    inputs: Array<InputProperties | CustomInputProperties>,
+    class?: string,
+    buttonsBoxClass?: string,
+    buttons: Array<{
+        text: string,
+        onClick?: () => void,
+        disabled?: boolean,
+        class?: string,
+        type: 'button' | 'submit',
+    }>
 }

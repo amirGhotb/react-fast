@@ -4,6 +4,7 @@ import './Assets/Sass/app.scss'
 import ToastProvider from "./Core/Components/Toast";
 import Routes from "./Core/Routes";
 import {AppProvider} from "./Core/Storage/AppContext";
+import 'bootstrap/dist/js/bootstrap.bundle.min'
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
